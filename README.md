@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+## Assumption made for approaching the task
+    > Invoice Structure Assumption:
+        The structure of the invoice (PDF or image) is assumed to have specific sections like "Invoice Number," "Total," and "Billed from."
+        The structure of the invoice is assumed to be consistent across different documents.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    > PDF Handling:
+        PDFs are assumed to be converted to images for text extraction using pdfjs-dist.
+        Each page of the PDF is considered a separate image for Tesseract.js text extraction.
 
-## Available Scripts
+    > Tesseract.js Text Extraction:
+        Tesseract.js is assumed to be capable of extracting text accurately from images with clear and well-formatted content.
+        The extraction logic for invoice number, invoice amount, and supplier name relies on simple regular expressions that may need adjustment based on the actual content and variations in invoices.
 
-In the project directory, you can run:
+    > User Interface:
+        The user interface assumes a simple setup with a file input for selecting PDF or image files.
+        The extracted data is displayed in a table format.
 
-### `npm start`
+    > Dependencies:
+        It is assumed that the necessary dependencies (@react-pdf-viewer/core, @react-pdf-viewer/pdfjs-dist, and tesseract.js) are available and can be installed using Yarn.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    > Image and PDF Source:
+        The source of the image or PDF is assumed to be from the user's local device through a file input.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    > Extraction Logic:
+        The extraction logic for invoice number, invoice amount, and supplier name is based on the provided sample text. Adjustments may be needed for variations in the actual documents.
 
-### `npm test`
+    > Regular Expressions:
+        The regular expressions used for text extraction assume a certain format in the provided sample text and may need modification for other variations.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## List any flows you would cater if you developing this
+    > File Input Validation:
+        Check that the user uploads a valid file (PDF or image) using appropriate file type validation.
+        Handle cases where the uploaded file is corrupted or not in a supported format.
 
-### `npm run build`
+    > PDF Handling:
+        Ensure that the PDF rendering and conversion to images cover various PDF formats and potential issues.
+        Handle multi-page PDFs and coordinate the extraction logic across all pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    > Tesseract.js Accuracy:
+        Account for potential inaccuracies in text extraction using Tesseract.js. Implement error handling and logging to identify and address any issues.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    > Dynamic Extraction Logic:
+        Make the extraction logic flexible and dynamic to accommodate variations in the structure and content of invoices. Allow for customization or configuration of extraction rules.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    > User Interface Feedback:
+        Provide clear feedback to the user during file upload, conversion, and text extraction processes.
+        Display loading spinners or progress indicators to indicate ongoing operations.
 
-### `npm run eject`
+    > Error Handling:
+        Implement error handling mechanisms for various stages, such as file loading errors, Tesseract.js errors, or PDF rendering issues.
+        Display informative error messages to guide users in case of failures.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    > User Experience:
+        Design a user-friendly interface with clear instructions and intuitive controls.
+        Consider accessibility features to ensure the application is usable by individuals with disabilities.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    > Testing:
+        Perform thorough testing with a variety of sample PDFs and images, including documents with different layouts, fonts, and structures.
+        Conduct usability testing to identify and address any potential user experience issues.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    > Security:
+        Implement security measures to ensure the confidentiality and integrity of uploaded documents.
+        Avoid executing untrusted code or handling sensitive information inappropriately.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    > Performance Optimization:
+        Optimize the performance of the application, especially when handling large PDFs or images.
+        Consider implementing features like lazy loading for PDF pages or images to improve efficiency.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    > Configurability:
+        Allow users or administrators to configure extraction parameters, such as language settings for Tesseract.js or custom extraction rules.
